@@ -1,6 +1,5 @@
 const arr = [
   {
-    id: "1",
     heading: "SAMSUNG Galaxy F14 5G (GOAT Green, 128 GB)  (4 GB RAM)",
     image:
       "https://rukminim2.flixcart.com/image/416/416/xif0q/mobile/z/v/e/-original-imagtyxbptwcpjta.jpeg?q=70",
@@ -20,7 +19,6 @@ const arr = [
     cat: "Phones",
   },
   {
-    id: "2",
     heading: "Google Pixel 7a (Charcoal, 128 GB)  (8 GB RAM)",
     image:
       "https://rukminim2.flixcart.com/image/416/416/xif0q/mobile/n/i/d/-original-imagpgx4erjqnpzx.jpeg?q=70",
@@ -40,7 +38,6 @@ const arr = [
     cat: "Phones",
   },
   {
-    id: "3",
     heading:
       "ASUS Zenbook 14X OLED Ryzen 5 Hexa Core 5600HS - (16 GB/512 GB SSD/Windows 11 Home) UM5401QA-KM541WS Thin and Light Laptop  (14 Inch, Jade Black, 1.40 kg, With MS Office)",
     image:
@@ -62,7 +59,6 @@ const arr = [
     cat: "Laptops",
   },
   {
-    id: "4",
     heading:
       "ASUS TUF Gaming F15 - AI Powered Gaming Core i5 11th Gen 11260H - (8 GB/512 GB SSD/Windows 11 Home/4 GB Graphics/NVIDIA GeForce RTX 2050/144 Hz) FX506HF-HN075W Gaming Laptop  (15.6 Inch, Graphite Black, 2.30 kg)",
     image:
@@ -84,7 +80,6 @@ const arr = [
     cat: "Laptops",
   },
   {
-    id: "5",
     heading:
       "OnePlus Pad Go 8 GB RAM 128 GB ROM 11.35 inch with Wi-Fi Only Tablet (Twin Mint)",
     image:
@@ -104,7 +99,6 @@ const arr = [
     cat: "Tablets",
   },
   {
-    id: "6",
     heading:
       "APPLE iPad (9th Gen) 64 GB ROM 10.2 inch with Wi-Fi Only (Space Grey)",
     image:
@@ -125,7 +119,6 @@ const arr = [
     cat: "Tablets",
   },
   {
-    id: "7",
     heading:
       "SONY ZV-1F Vlog Camera for Content Creators and Vloggers  (20.1 MP, Blank Optical Zoom, 4x Digital Zoom, Black)",
     image:
@@ -145,7 +138,6 @@ const arr = [
     cat: "Cameras",
   },
   {
-    id: "8",
     heading:
       "NIKON Coolpix P950  (16 MP, 83x Optical Zoom, Up to 4x (angle of view equivalent to that of approx. 8000 mm lens in 35mm [135] format) Up to 3.6x when recording movies with [2160/30p] (4K UHD) or [2160/25p] (4K UHD) Digital Zoom, Black)",
     image:
@@ -164,7 +156,6 @@ const arr = [
     cat: "Cameras",
   },
   {
-    id: "9",
     heading:
       "Gadget Glow Edge To Edge Tempered Glass for Samsung Galaxy F34 5G, Samsung F34, Samsug A34 5G, Samsung M34 5G, Samsung Galaxy M34 5G, Samsung Galaxy A34 5G  (Pack of 1)",
     image:
@@ -184,7 +175,6 @@ const arr = [
     cat: "Accessories",
   },
   {
-    id: "10",
     heading:
       "Bestor USB C Hub Multiport Adapter for MacBook Pro Air 2021 2020 31C 4-in-1 USB Hub (Type C to 4 USB-A Ports) USB Hub  (Grey)",
     image:
@@ -199,7 +189,6 @@ const arr = [
     cat: "Accessories",
   },
   {
-    id: "11",
     heading:
       "REDMI Pad 4 GB RAM 128 GB ROM 10.61 Inch with Wi-Fi Only Tablet (Graphite Gray)",
     image:
@@ -219,7 +208,6 @@ const arr = [
     cat: "Tablets",
   },
   {
-    id: "12",
     heading: "Canon EOS 1500D DSLR Camera Body+ 18-55 mm IS II Lens  (Black)",
     image:
       "https://rukminim2.flixcart.com/image/416/416/kk01pjk0/dslr-camera/f/v/o/eos-1500d-canon-original-imafzfugydh2mjgf.jpeg?q=70",
@@ -239,7 +227,6 @@ const arr = [
     cat: "Cameras",
   },
   {
-    id: "13",
     heading: "APPLE iPhone 14 (Blue, 128 GB)",
     image:
       "https://rukminim2.flixcart.com/image/416/416/xif0q/mobile/3/5/l/-original-imaghx9qmgqsk9s4.jpeg?q=70",
@@ -258,7 +245,6 @@ const arr = [
     cat: "Phones",
   },
   {
-    id: "14",
     heading:
       "HP Victus Ryzen 5 Hexa Core 5600H - (8 GB/512 GB SSD/Windows 11 Home/4 GB Graphics/AMD Radeon RX 6500M) 15-fb0147AX Gaming Laptop  (15.6 Inch, Performance Blue, 2.37 Kg)",
     image:
@@ -279,7 +265,6 @@ const arr = [
     cat: "Laptops",
   },
   {
-    id: "15",
     heading:
       "DP 7606 (RECHARGEABLE PORTABLE USB FAN) 7606 (RECHARGEABLE PORTABLE USB FAN) USB Fan  (Blue)",
     image:
@@ -299,7 +284,6 @@ const arr = [
     cat: "Accessories",
   },
   {
-    id: "16",
     heading:
       "NIKON Zfc DSLR Camera with DX 16-50mm f/3.5-6.3 VR  (Black, Silver)",
     image:
@@ -318,7 +302,6 @@ const arr = [
     cat: "Cameras",
   },
   {
-    id: "17",
     heading: "OnePlus Nord CE 2 Lite 5G (Blue Tide, 128 GB)  (6 GB RAM)",
     image:
       "https://rukminim2.flixcart.com/image/416/416/xif0q/mobile/k/w/k/-original-imagg2abzhxjckxu.jpeg?q=70",
@@ -336,7 +319,6 @@ const arr = [
     cat: "Phones",
   },
   {
-    id: "18",
     heading:
       "APPLE 2022 MacBook AIR M2 - (8 GB/256 GB SSD/Mac OS Monterey) MLY13HN/A  (13.6 Inch, Starlight, 1.24 kg)",
     image:
@@ -355,7 +337,6 @@ const arr = [
     cat: "Laptops",
   },
   {
-    id: "19",
     heading:
       "SAMSUNG Galaxy Tab S7 FE With Stylus 6 GB RAM 128 GB ROM 12.4 inches with Wi-Fi+4G Tablet (Black)",
     image:
@@ -377,7 +358,6 @@ const arr = [
     cat: "Tablets",
   },
   {
-    id: "20",
     heading:
       "Portronics Portable USB Table Fan with Rechargeable battery, 360° Rotatable, 3 Speed Modes, Noiseless Design, 3D Curved Blade, USB Fan  (Blue)",
     image:
@@ -395,125 +375,16 @@ const arr = [
     percent: "62",
     cat: "Accessories",
   },
-  {
-    id: "21",
-    heading: "",
-    image: "",
-    description: "",
-    highlights: [],
-    price: "",
-    discount: "",
-    ratings: "4.5",
-    percent: "11",
-    cat: "",
-  },
-  {
-    id: "22",
-    heading: "",
-    image: "",
-    description: "",
-    highlights: [],
-    price: "",
-    discount: "",
-    ratings: "4.5",
-    percent: "11",
-    cat: "",
-  },
-  {
-    id: "23",
-    heading: "",
-    image: "",
-    description: "",
-    highlights: [],
-    price: "",
-    discount: "",
-    ratings: "4.5",
-    percent: "11",
-    cat: "",
-  },
-  {
-    id: "24",
-    heading: "",
-    image: "",
-    description: "",
-    highlights: [],
-    price: "",
-    discount: "",
-    ratings: "4.5",
-    percent: "11",
-    cat: "",
-  },
-  {
-    id: "25",
-    heading: "",
-    image: "",
-    description: "",
-    highlights: [],
-    price: "",
-    discount: "",
-    ratings: "4.5",
-    percent: "11",
-    cat: "",
-  },
-  {
-    id: "26",
-    heading: "",
-    image: "",
-    description: "",
-    highlights: [],
-    price: "",
-    discount: "",
-    ratings: "4.5",
-    percent: "11",
-    cat: "",
-  },
-  {
-    id: "27",
-    heading: "",
-    image: "",
-    description: "",
-    highlights: [],
-    price: "",
-    discount: "",
-    ratings: "4.5",
-    percent: "11",
-    cat: "",
-  },
-  {
-    id: "28",
-    heading: "",
-    image: "",
-    description: "",
-    highlights: [],
-    price: "",
-    discount: "",
-    ratings: "4.5",
-    percent: "11",
-    cat: "",
-  },
-  {
-    id: "29",
-    heading: "",
-    image: "",
-    description: "",
-    highlights: [],
-    price: "",
-    discount: "",
-    ratings: "4.5",
-    percent: "11",
-    cat: "",
-  },
-  {
-    id: "30",
-    heading: "",
-    image: "",
-    description: "",
-    highlights: [],
-    price: "",
-    discount: "",
-    ratings: "4.5",
-    percent: "11",
-    cat: "",
-  },
+  // {
+  //   heading: "",
+  //   image: "",
+  //   description: "",
+  //   highlights: [],
+  //   price: "",
+  //   discount: "",
+  //   ratings: "4.5",
+  //   percent: "11",
+  //   cat: "",
+  // },
 ];
 module.exports = arr;

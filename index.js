@@ -3,6 +3,7 @@ const route = require("./router/userRoutes");
 const cors = require("cors");
 const dotenv = require("dotenv");
 const app = express();
+const connectToDB = require("./db/connection");
 dotenv.config();
 const port = process.env.port;
 app.use(express.json()); //Body Parser
@@ -22,6 +23,14 @@ app.get("/", (req, res) => {
 
 app.use("/api", route);
 
-app.listen(port, () => {
-  console.log(`Server is running on http://localhost:${port}/`);
-});
+const startConnection = async () => {
+  try {
+    await connectToDB(process.env.mongo_uri);
+    app.listen(port, () =>
+      console.log(`Example app listening on port ${port}!`)
+    );
+  } catch (err) {
+    console.log(err);
+  }
+};
+startConnection();

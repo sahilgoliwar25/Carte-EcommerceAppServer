@@ -1,41 +1,74 @@
-const arr2 = [];
-const bcrypt = require("bcrypt");
-const saltround = 10;
+const bcrypt = require("bcryptjs");
+// const saltround = 10;
 const jwt = require("jsonwebtoken");
 const arr = require("../dummydata");
+const User = require("../models/userModel");
+const Product = require("../models/productModel");
+const nodemailer = require("nodemailer");
+const crypto = require("crypto");
 
-const register = (req, res) => {
-  const userdata = req.body;
-  console.log(userdata);
-  const found = arr2.find((el) => el.email === userdata.email);
-  if (found) {
-    return res.send({ msg: "User already exist" });
+//node mailer setup
+const transporter = nodemailer.createTransport({
+  service: "gmail",
+  auth: {
+    user: "XXXXXXXXXXXXXXXXXXXXXXXXXX",
+    pass: "XXXXXXXX",
+  },
+});
+
+const register = async (req, res) => {
+  try {
+    const userdata = req.body;
+    let { name, contact, email, password } = userdata;
+    // console.log(userdata);
+
+    //bcrypt
+    const salt = await bcrypt.genSalt(10);
+    const found = await User.findOne({ email: email });
+    console.log(found);
+    //find user
+    if (found) {
+      //if found then return
+      return res.send({ msg: "User already exist" });
+    }
+
+    //password encryption
+    const hashpassword = bcrypt.hashSync(userdata.password, salt);
+    const temp = {
+      name: name,
+      contact: contact,
+      email: email,
+      password: hashpassword,
+    };
+    try {
+      const user = await User.create(temp);
+      // console.log(user);
+    } catch (e) {
+      console.log(e);
+      return res.status(500).send({ msg: "not created ", err: e });
+    }
+    const token = jwt.sign({ email: userdata.email }, process.env.secretkey, {
+      expiresIn: "36000",
+    });
+    res.status(200).send({
+      msg: "User is registered successfully",
+      result: temp,
+      token: token,
+    });
+    console.log(temp);
+  } catch (e) {
+    console.log(e);
+    res.status(500).send({ msg: "not created ", err: e });
   }
-  //password encryption
-  //const haspassword = bcrypt.hash(originalpassword,saltround);
-  const hashpassword = bcrypt.hashSync(userdata.password, saltround);
-  const temp = {
-    name: userdata.name,
-    contact: userdata.contact,
-    email: userdata.email,
-    password: hashpassword,
-  };
-  arr2.push(temp);
-  const token = jwt.sign({ email: userdata.email }, process.env.secretkey, {
-    expiresIn: "36000",
-  });
-  res.status(200).send({
-    msg: "User is registered successfully",
-    result: arr2,
-    token: token,
-  });
 };
 
 const login = async (req, res) => {
   const userdata = req.body;
+  const { email, password } = userdata;
   console.log(userdata);
 
-  const found = arr2.find((el) => el.email === userdata.email);
+  const found = await User.findOne({ email: email });
+  console.log(found);
   //checking if email is present in data or not
   if (!found) {
     return res.send({ msg: "User not registered" });
@@ -53,15 +86,91 @@ const login = async (req, res) => {
   res.send({ msg: "User is LoggedIn successfully", userdata, token: token });
 };
 
+// find  user
+async function resetPassword(req, res) {
+  try {
+    const { email } = req.body;
+
+    const result = await User.findOne({ email: email });
+    if (!result) {
+      return res.status(404).send({ msg: "user not found" });
+    }
+
+    jwt.sign(
+      { _id: result._id },
+      "secret",
+      { expiresIn: "15m" },
+      (err, token) => {
+        if (err) {
+          res.status(500).send({ msg: "internal server error" });
+        }
+
+        //setup the mail info
+        const mailOptions = {
+          from: "your@gmail.com",
+          to: email,
+          subject: "Reset your password",
+          text: `To reset your password, please click the link below: http://localhost:3000/resetpassword/${token}`,
+        };
+
+        //send email
+        transporter.sendMail(mailOptions, function (err, info) {
+          if (err) {
+            console.log(err);
+            res.status(500).send({ msg: "error sending the email " });
+          } else {
+            res.status(200).send({ user: "Email sent successfully" });
+          }
+        });
+      }
+    );
+  } catch (e) {
+    res.status(500).send({ error: e });
+  }
+}
+
+// change password of user
+async function changePassword(req, res) {
+  try {
+    const { token } = req.params;
+    const { newpassword } = req.body;
+
+    jwt.verify(token, "secret", async (err, decoded) => {
+      if (err) {
+        return res.status(400).send({ msg: "invalid token" });
+      }
+
+      const hashedPassword = await bcrypt.hash(newpassword, 10);
+
+      await User.findByIdAndUpdate(decoded._id, { password: hashedPassword });
+
+      res.status(200).send({ msg: "password updated successfully" });
+    });
+  } catch (e) {
+    res.status(500).send("error occured", e);
+  }
+}
+
 //data functions
-const data = (req, res) => {
-  return res.send(arr);
+const data = async (req, res) => {
+  try {
+    const products = await Product.find();
+
+    res.status(200).send(products);
+  } catch (e) {
+    res.status(500).send({ msg: e });
+  }
 };
-const filteredData = (req, res) => {
-  const cat = req.params;
-  const datatemp = arr.filter((item) => item.cat === cat.prodCat);
-  // console.log(datatemp);
-  return res.send(datatemp);
+const filteredData = async (req, res) => {
+  try {
+    const category = req.params;
+    // const datatemp = arr.filter((item) => item.cat === cat.prodCat);
+    const products = await Product.find({ cat: `${category.prodCat}` });
+    // console.log(products);
+    return res.send(products);
+  } catch (e) {
+    res.status(500).send({ msg: e });
+  }
 };
 //dashboard and profile functions
 const dashboard = (req, res) => {
@@ -80,4 +189,27 @@ const profile = (req, res) => {
     },
   ]);
 };
-module.exports = { register, login, data, dashboard, profile, filteredData };
+
+// add a new Product
+async function addNewProduct(req, res) {
+  try {
+    const dataEntry = req.body;
+    const product = await Product.create(dataEntry);
+    res.status(200).send({ product: product });
+  } catch (e) {
+    console.log(e);
+    res.status(500).send({ msg: "not created ", err: e });
+  }
+}
+
+module.exports = {
+  register,
+  login,
+  data,
+  dashboard,
+  profile,
+  filteredData,
+  resetPassword,
+  changePassword,
+  addNewProduct,
+};

@@ -17,6 +17,7 @@ const arr = [
     ratings: "4.2",
     percent: "34",
     cat: "Phones",
+    subcat: "SAMSUNG",
   },
   {
     heading: "Google Pixel 7a (Charcoal, 128 GB)  (8 GB RAM)",
@@ -36,6 +37,7 @@ const arr = [
     ratings: "4.5",
     percent: "18",
     cat: "Phones",
+    subcat: "Google",
   },
   {
     heading:
@@ -57,6 +59,7 @@ const arr = [
     ratings: "4.5",
     percent: "36",
     cat: "Laptops",
+    subcat: "ASUS",
   },
   {
     heading:
@@ -78,6 +81,7 @@ const arr = [
     ratings: "4.3",
     percent: "34",
     cat: "Laptops",
+    subcat: "ASUS",
   },
   {
     heading:
@@ -97,6 +101,7 @@ const arr = [
     ratings: "",
     percent: "",
     cat: "Tablets",
+    subcat: "OnePlus",
   },
   {
     heading:
@@ -117,6 +122,7 @@ const arr = [
     ratings: "4.6",
     percent: "23",
     cat: "Tablets",
+    subcat: "APPLE",
   },
   {
     heading:
@@ -136,6 +142,7 @@ const arr = [
     ratings: "4.3",
     percent: "17",
     cat: "Cameras",
+    subcat: "SONY",
   },
   {
     heading:
@@ -154,6 +161,7 @@ const arr = [
     ratings: "4.2",
     percent: "3",
     cat: "Cameras",
+    subcat: "NIKON",
   },
   {
     heading:
@@ -173,6 +181,7 @@ const arr = [
     ratings: "4.5",
     percent: "78",
     cat: "Accessories",
+    subcat: "Mobile Accessories",
   },
   {
     heading:
@@ -187,6 +196,7 @@ const arr = [
     ratings: "4.5",
     percent: "85",
     cat: "Accessories",
+    subcat: "Laptop Accessories",
   },
   {
     heading:
@@ -206,6 +216,7 @@ const arr = [
     ratings: "4.4",
     percent: "18",
     cat: "Tablets",
+    subcat: "REDMI",
   },
   {
     heading: "Canon EOS 1500D DSLR Camera Body+ 18-55 mm IS II Lens  (Black)",
@@ -225,6 +236,7 @@ const arr = [
     ratings: "4.5",
     percent: "18",
     cat: "Cameras",
+    subcat: "Canon",
   },
   {
     heading: "APPLE iPhone 14 (Blue, 128 GB)",
@@ -243,6 +255,7 @@ const arr = [
     ratings: "4.7",
     percent: "18",
     cat: "Phones",
+    subcat: "APPLE",
   },
   {
     heading:
@@ -263,6 +276,7 @@ const arr = [
     ratings: "4.3",
     percent: "18",
     cat: "Laptops",
+    subcat: "HP",
   },
   {
     heading:
@@ -282,6 +296,7 @@ const arr = [
     ratings: "3.7",
     percent: "18",
     cat: "Accessories",
+    subcat: "Others",
   },
   {
     heading:
@@ -300,6 +315,7 @@ const arr = [
     ratings: "4.5",
     percent: "18",
     cat: "Cameras",
+    subcat: "NIKON",
   },
   {
     heading: "OnePlus Nord CE 2 Lite 5G (Blue Tide, 128 GB)  (6 GB RAM)",
@@ -317,6 +333,7 @@ const arr = [
     ratings: "4.5",
     percent: "11",
     cat: "Phones",
+    subcat: "OnePlus",
   },
   {
     heading:
@@ -335,6 +352,7 @@ const arr = [
     ratings: "4.8",
     percent: "21",
     cat: "Laptops",
+    subcat: "APPLE",
   },
   {
     heading:
@@ -356,6 +374,7 @@ const arr = [
     ratings: "4.5",
     percent: "33",
     cat: "Tablets",
+    subcat: "SAMSUNG",
   },
   {
     heading:
@@ -374,6 +393,7 @@ const arr = [
     ratings: "4.5",
     percent: "62",
     cat: "Accessories",
+    subcat: "Other",
   },
   // {
   //   heading: "",
@@ -385,6 +405,7 @@ const arr = [
   //   ratings: "4.5",
   //   percent: "11",
   //   cat: "",
+  // subcat:""
   // },
 ];
 module.exports = arr;

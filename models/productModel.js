@@ -31,6 +31,10 @@ const productSchema = new Schema({
     type: String,
     required: [true, "you forgot to enter this field"],
   },
+  subcat: {
+    type: String,
+    required: [true, "you forgot to enter this field"],
+  },
 });
 
 module.exports = mongoose.model("Product", productSchema);

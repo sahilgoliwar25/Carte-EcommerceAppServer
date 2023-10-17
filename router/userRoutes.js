@@ -9,12 +9,14 @@ const {
   resetPassword,
   changePassword,
   addNewProduct,
+  filteredSubData,
 } = require("../controller/userController");
 const authMiddleware = require("../middleware/userMiddleware");
 
 //data route
 route.get("/products", data);
 route.get("/products/:prodCat", filteredData);
+route.get("/products/:prodCat/:prodSubCat", filteredSubData);
 
 // signup and login
 route.post("/register", register);

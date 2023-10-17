@@ -161,11 +161,26 @@ const data = async (req, res) => {
     res.status(500).send({ msg: e });
   }
 };
+
 const filteredData = async (req, res) => {
   try {
     const category = req.params;
     // const datatemp = arr.filter((item) => item.cat === cat.prodCat);
     const products = await Product.find({ cat: `${category.prodCat}` });
+    // console.log(products);
+    return res.send(products);
+  } catch (e) {
+    res.status(500).send({ msg: e });
+  }
+};
+const filteredSubData = async (req, res) => {
+  try {
+    const category = req.params;
+    // const datatemp = arr.filter((item) => item.cat === cat.prodCat);
+    const products = await Product.find({
+      cat: `${category.prodCat}`,
+      subcat: `${category.prodSubCat}`,
+    });
     // console.log(products);
     return res.send(products);
   } catch (e) {
@@ -212,4 +227,5 @@ module.exports = {
   resetPassword,
   changePassword,
   addNewProduct,
+  filteredSubData,
 };

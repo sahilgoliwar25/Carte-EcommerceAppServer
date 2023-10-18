@@ -6,6 +6,7 @@ const User = require("../models/userModel");
 const Product = require("../models/productModel");
 const nodemailer = require("nodemailer");
 const crypto = require("crypto");
+const { createOrder } = require("../paypal-apis");
 
 //node mailer setup
 const transporter = nodemailer.createTransport({
@@ -217,6 +218,56 @@ async function addNewProduct(req, res) {
   }
 }
 
+//add to cart
+async function addtocart(req, res) {
+  try {
+    const userId = req.body.id;
+    const productId = req.body.productId;
+    const user = await User.findById(userId)
+      .then(() => {
+        if (!user) {
+          console.log("usernotfound");
+        }
+
+        const cartItemIndex = user.cart.findIndex((item) =>
+          item.product.equals(productId)
+        );
+
+        if (!cartItemIndex) user.cart.push({ product: productId, quantity: 1 });
+        else user.cart[cartItemIndex].quantity += 1;
+
+        return user.save();
+      })
+      .then(() => {
+        console.log("cart updated successfully");
+        res.status(200).send({ user: "cart updated" });
+      });
+  } catch (e) {
+    res.status(500).send({ msg: e });
+  }
+}
+
+async function getProducts(req, res) {
+  try {
+    const products = await Product.find();
+
+    res.status(200).send({ products: products });
+  } catch (e) {
+    res.status(500).send({ msg: e });
+  }
+}
+
+async function newOrder(req, res) {
+  try {
+    const { cart } = req.body;
+    const { jsonResponse, httpStatusCode } = await createOrder(cart);
+    res.status(httpStatusCode).json(jsonResponse);
+  } catch (error) {
+    console.error("Failed to create order:", error);
+    res.status(500).json({ error: "Failed to create order." });
+  }
+}
+
 module.exports = {
   register,
   login,
@@ -228,4 +279,7 @@ module.exports = {
   changePassword,
   addNewProduct,
   filteredSubData,
+  addtocart,
+  getProducts,
+  newOrder,
 };

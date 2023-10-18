@@ -296,7 +296,7 @@ const arr = [
     ratings: "3.7",
     percent: "18",
     cat: "Accessories",
-    subcat: "Others",
+    subcat: "Other",
   },
   {
     heading:

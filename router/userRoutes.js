@@ -10,6 +10,9 @@ const {
   changePassword,
   addNewProduct,
   filteredSubData,
+  getProducts,
+  addtocart,
+  newOrder,
 } = require("../controller/userController");
 const authMiddleware = require("../middleware/userMiddleware");
 
@@ -31,6 +34,9 @@ route.get("/dashboard", authMiddleware, dashboard);
 route.get("/profile", authMiddleware, profile);
 
 //products add
+route.post("/addtocart", addtocart);
 route.post("/addproduct", addNewProduct);
+route.get("/getproducts", getProducts);
+route.post("/neworder", newOrder);
 
 module.exports = route;
